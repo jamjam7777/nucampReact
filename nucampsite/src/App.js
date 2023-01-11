@@ -1,14 +1,14 @@
-import Header from './components/Header';
-import './App.css';
-import Footer from './components/Footer';
-import CampsitesList from './features/campsites/CampsitesList';
+import Header from "./components/Header";
+import "./App.css";
+import Footer from "./components/Footer";
+import CampsitesDirectoryPage from "./pages/CampsitesDirectoryPage";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-       <CampsitesList/>
-       <Footer/>
+      <Header />
+      <CampsitesDirectoryPage />
+      <Footer />
     </div>
   );
 }
