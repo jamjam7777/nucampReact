@@ -1,22 +1,30 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label, ModalFooter } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import validateCommentForm from '../../utils/validateCommentForm';
+import { addComment } from "./commentsSlice";
 
 const CommentForm = (campsiteId) => {
   const [modalOpen, setModalOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
   const handleSubmit = (values) => {
     const comment =
     {
         campsiteId: parseInt(campsiteId),
         rating: values.rating,
         author: values.author,
-        text: values.commentText
+        text: values.commentText,
+        date: new Date(Dare.now()).toISOString()
     };
-    console.log(comment)
+    console.log('comment:', comment)
+    dispatch(addComment(comment));
     setModalOpen(false);
 
-  }
+  };
+  
   return (
     <>
       <Button outline onClick={() => setModalOpen(true)}>
@@ -28,7 +36,7 @@ const CommentForm = (campsiteId) => {
         </ModalHeader>
         <ModalBody>
         <Formik initialValues={{
-            rating: 'undefined',
+            rating: undefined,
             author: '',
             commentText: '',
         }}
