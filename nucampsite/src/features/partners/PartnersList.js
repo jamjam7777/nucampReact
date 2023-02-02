@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Col } from "reactstrap";
+import { Col, Row } from "reactstrap";
 import Partner from "../partners/Partner";
 import { selectAllPartners } from "./partnerSlice";
 import Error from '../../components/Error';

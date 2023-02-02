@@ -10,6 +10,7 @@ import AboutPage from "./pages/AboutPage";
 import { fetchPartners } from "./features/partners/partnerSlice";
 import { fetchCampsites } from "./features/campsites/campsitesSlice";
 import { useDispatch } from "react-redux";
+import { fetchPromotions } from "./features/promotions/promotionsSlice";
 import { useEffect } from "react";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     useEffect(() => {
       dispatch(fetchCampsites());
       dispatch(fetchPartners());
+      dispatch(fetchPromotions());
     }, [dispatch]);
 
   return (
