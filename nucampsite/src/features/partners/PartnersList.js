@@ -13,19 +13,21 @@ const PartnersList = () => {
 
   return isLoading ? (
     <Loading />
-  ) : errMsg ? (
+) : errMsg ? (
     <Error errMsg={errMsg} />
-  ) : (
-    <Col className="mt-4">
-      {partners.map((partner) => {
-        return (
-          <div className="d-flex mb-5" key={partner.id}>
-            <Partner partner={partner} />
-          </div>
-        );
-      })}
+) : (
+    <Col className='mt-4'>
+        <Row>
+            {partners.map((partner) => {
+                return (
+                    <div className='d-flex mb-5' key={partner.id}>
+                        <Partner partner={partner} />
+                    </div>
+                );
+            })}
+        </Row>
     </Col>
-  );
+);
 };
 
 export default PartnersList;
